@@ -10,7 +10,6 @@
 		2CCD186D2B4BBA8C0028FD29 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD186C2B4BBA8C0028FD29 /* main.swift */; };
 		2CCD187A2B4BBACA0028FD29 /* simpleUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD18792B4BBACA0028FD29 /* simpleUnit.swift */; };
 		2CCD187F2B4BBAE70028FD29 /* RegExp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD187E2B4BBAE70028FD29 /* RegExp.swift */; };
-		2CCD18812B4BBAEF0028FD29 /* RegExpConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD18802B4BBAEF0028FD29 /* RegExpConfig.swift */; };
 		2CCD18832B4BBAFA0028FD29 /* LXExpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD18822B4BBAFA0028FD29 /* LXExpTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,6 @@
 		2CCD18772B4BBACA0028FD29 /* simpleUnit.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = simpleUnit.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CCD18792B4BBACA0028FD29 /* simpleUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simpleUnit.swift; sourceTree = "<group>"; };
 		2CCD187E2B4BBAE70028FD29 /* RegExp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegExp.swift; sourceTree = "<group>"; };
-		2CCD18802B4BBAEF0028FD29 /* RegExpConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegExpConfig.swift; sourceTree = "<group>"; };
 		2CCD18822B4BBAFA0028FD29 /* LXExpTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXExpTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,7 +83,6 @@
 			children = (
 				2CCD18792B4BBACA0028FD29 /* simpleUnit.swift */,
 				2CCD187E2B4BBAE70028FD29 /* RegExp.swift */,
-				2CCD18802B4BBAEF0028FD29 /* RegExpConfig.swift */,
 				2CCD18822B4BBAFA0028FD29 /* LXExpTest.swift */,
 			);
 			path = simpleUnit;
@@ -188,7 +185,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CCD18812B4BBAEF0028FD29 /* RegExpConfig.swift in Sources */,
 				2CCD187F2B4BBAE70028FD29 /* RegExp.swift in Sources */,
 				2CCD187A2B4BBACA0028FD29 /* simpleUnit.swift in Sources */,
 				2CCD18832B4BBAFA0028FD29 /* LXExpTest.swift in Sources */,

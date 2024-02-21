@@ -130,7 +130,6 @@ extension RegExp {
 
      总之，`^` 的含义取决于它在正则表达式中的位置。在开头表示字符串的开始，而在字符集内表示否定。
      */
-    
     func test_zfu_003() {
         let pattern = "[^abcd]"
         let inputString = "1234abcdABCD"
@@ -696,5 +695,111 @@ extension RegExp {
         r = "12,345,678"
         XCTAssertEqual(config.modify_result, r, "not equal")
         
+    }
+}
+
+
+
+
+struct RegExpConfig {
+    let pattern: String
+    let inputString: String
+    var replaceStr: String!
+}
+
+extension RegExpConfig {
+    var match_result: Bool {
+        checkPattern_(pattern: pattern, inputString: inputString).0
+    }
+    
+    var match_result_detail: Array<String> {
+        checkPattern_(pattern: pattern, inputString: inputString).1
+    }
+    
+    var can_match: Bool {
+        canMatch_(pattern: pattern, inputString: inputString)
+    }
+    
+    var modify_result: String {
+        modifyStr_(pattern: pattern, inputString: inputString, replaceStr: replaceStr)
+    }
+    
+}
+
+extension RegExpConfig {
+    
+    private func modifyStr_(pattern: String, inputString: String, replaceStr: String) -> String {
+
+        do {
+            let regex = try NSRegularExpression(pattern: pattern, options: [])
+            
+            let range = NSRange(location: 0, length: inputString.utf16.count)
+            /*
+             Returns a new string containing matching regular expressions replaced with the template string.
+             */
+            let modifiedString = regex.stringByReplacingMatches(in: inputString, options: [], range: range, withTemplate: replaceStr)
+            
+            lxprint(modifiedString)
+            return modifiedString
+        } catch {
+            return ""
+        }
+    }
+    
+    
+    private func checkPattern_(pattern: String, inputString: String) -> (Bool, Array<String>) {
+        var flag = false
+        
+        var result: Array<String> = .init()
+        
+        do {
+            let regex = try NSRegularExpression(pattern: pattern, options: [])
+            let range = NSRange(location: 0, length: inputString.utf16.count)
+            
+            /*
+             Returns an array containing all the matches of the regular expression in the string.
+             */
+            
+            let matches = regex.matches(in: inputString, options: [], range: range)
+
+            for match in matches {
+                
+                let matchRange = match.range
+                if let swiftRange = Range(matchRange, in: inputString) {
+                    let matchedSubstring = String(inputString[swiftRange])
+                    flag = true
+                    result.append(matchedSubstring)
+                    lxprint(matchedSubstring)
+                }
+            }
+        } catch {
+            flag = false
+            lxprint("Error creating regular expression: \(error)")
+        }
+        return (flag, result)
+    }
+    
+    
+    private func canMatch_(pattern: String, inputString: String) -> Bool {
+        var flag = false
+        
+        do {
+            let regex = try NSRegularExpression(pattern: pattern, options: [])
+            let range = NSRange(location: 0, length: inputString.utf16.count)
+            /*
+             Returns the first match of the regular expression within the specified range of the string.
+             */
+            let isMatch = regex.firstMatch(in: inputString, options: [], range: range) != nil
+            flag = isMatch
+        } catch {
+            flag = false
+            lxprint("Error creating regular expression: \(error)")
+        }
+        
+        return flag
+    }
+    
+    private func lxprint(_ msg: Any) {
+        print("😁😁😁==\(msg)")
     }
 }
